@@ -78,7 +78,7 @@ jobs:
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release
 
     - name: Publish the application
-      run: msbuild $env:Solution_Name /t:Publish /p:Configuration=Release /p:PublishSingleFile=true /p:SelfContained=true /p:PublishDir=bin\\Release\\net8.0\\publish\\
+      run: msbuild $env:Solution_Name /t:Publish /p:Configuration=Release /p:SelfContained=true /p:PublishDir=bin\\Release\\net8.0\\publish\\
 
 
     - name: Upload build artifacts
