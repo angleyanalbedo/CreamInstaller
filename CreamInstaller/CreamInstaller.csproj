@@ -7,7 +7,7 @@
         <Version>5.0.0.0</Version>
         <Copyright>2021, pointfeev (https://github.com/pointfeev)</Copyright>
         <Company>CreamInstaller</Company>
-        <Product>自动DLC解锁工具 </Product>
+        <Product>AUto DLC Unlocker </Product>
         <StartupObject>CreamInstaller.Program</StartupObject>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
@@ -159,7 +159,10 @@
         <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Update="Forms\DebugForm.cs">
+		<Compile Update="Components\CustomForm.cs">
+			<SubTypeForm>Form</SubTypeForm>
+		</Compile>
+		<Compile Update="Forms\DebugForm.cs">
             <SubType>Form</SubType>
         </Compile>
         <Compile Update="Forms\DialogForm.cs">
