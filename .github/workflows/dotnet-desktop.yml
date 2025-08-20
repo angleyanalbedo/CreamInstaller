@@ -78,11 +78,15 @@ jobs:
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release
 
     - name: Publish the application
-      run: msbuild $env:Solution_Name /t:Publish /p:Configuration=Release /p:SelfContained=true /p:PublishDir=bin\\Release\\net8.0\\publish\\
+      run: msbuild $env:Solution_Name /t:Publish /p:Configuration=Release /p:SelfContained=true /p:PublishDir=${{ github.workspace }}/bin/Release/net8.0/publish/
 
+    - name: List publish directory contents
+      run: |
+        echo "Listing contents of the publish directory:"
+        ls ${{ github.workspace }}/bin/Release/net8.0/publish/
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: github-auto-publish-artifact
-        path: bin\\Release\\net8.0\\publish\\
+        path: ${{ github.workspace }}/bin/Release/net8.0/publish/
