@@ -17,7 +17,6 @@
         <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
         <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
         <Deterministic>true</Deterministic>
-        <Optimize>True</Optimize>
         <DebugType>embedded</DebugType>
         <DebugSymbols>true</DebugSymbols>
         <DefineConstants>$(DefineConstants)</DefineConstants>
@@ -25,19 +24,29 @@
         <LangVersion>latest</LangVersion>
         <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
         <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
-        <Platforms>x64</Platforms>
+        <Platforms>x64;AnyCPU</Platforms>
+        <TargetFrameworks></TargetFrameworks>
+        <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<Optimize>true</Optimize>
         <AssemblyName>$(Company)</AssemblyName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<Optimize>false</Optimize>
         <AssemblyName>$(Company)-debug</AssemblyName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
         <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
         <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Resources\Koaloader\audioses-32\audioses.dll" />
@@ -187,6 +196,11 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <Compile Update="Properties\Settings.Designer.cs">
+          <DesignTimeSharedInput>True</DesignTimeSharedInput>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Settings.settings</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Update="Forms\DebugForm.resx">
@@ -211,5 +225,11 @@
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="Properties\Settings.settings">
+        <Generator>SettingsSingleFileGenerator</Generator>
+        <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      </None>
     </ItemGroup>
 </Project>
