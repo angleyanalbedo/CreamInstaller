@@ -334,7 +334,7 @@ namespace CreamInstaller.Forms
             resetButton.Name = "resetButton";
             resetButton.Size = new System.Drawing.Size(45, 25);
             resetButton.TabIndex = 10007;
-            resetButton.Text = "刷新";
+            resetButton.Text = "恢复默认";
             resetButton.UseVisualStyleBackColor = true;
             resetButton.Click += OnResetSelections;
             // 

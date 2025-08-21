@@ -548,7 +548,7 @@ internal sealed partial class SelectForm : CustomForm
         Program.Canceled = false;
         blockedGamesCheckBox.Enabled = false;
         blockProtectedHelpButton.Enabled = false;
-        cancelButton.Enabled = true;
+        cancelButton.Enabled = false;
         scanButton.Enabled = false;
         noneFoundLabel.Visible = false;
         allCheckBox.Enabled = false;
@@ -629,8 +629,6 @@ internal sealed partial class SelectForm : CustomForm
                     programsToScan = choices;
                     noneFoundLabel.Text = "选择的游戏无法解锁或无DLC" + retry;
                 }
-                else
-                    noneFoundLabel.Text = "草你妈选游戏" + retry;
             }
             else
                 noneFoundLabel.Text = "找不到游戏";
@@ -690,7 +688,7 @@ internal sealed partial class SelectForm : CustomForm
         saveButton.Enabled = CanSaveSelections();
         loadButton.Enabled = CanLoadSelections();
         resetButton.Enabled = CanResetSelections();
-        cancelButton.Enabled = false;
+        cancelButton.Enabled = true;
         scanButton.Enabled = true;
         blockedGamesCheckBox.Enabled = true;
         blockProtectedHelpButton.Enabled = true;
@@ -1047,7 +1045,8 @@ internal sealed partial class SelectForm : CustomForm
     private static bool AreProxySelectionsDefault() => Selection.All.Keys.All(selection => !selection.UseProxy);
 
     private bool CanSaveDlc() =>
-        installButton.Enabled && (ProgramData.ReadDlcChoices().Any() || !AreSelectionsDefault());
+        //installButton.Enabled && (ProgramData.ReadDlcChoices().Any() || !AreSelectionsDefault());
+        installButton.Enabled = true;
 
     private static bool CanSaveProxy() =>
         ProgramData.ReadProxyChoices().Any() || !AreProxySelectionsDefault();

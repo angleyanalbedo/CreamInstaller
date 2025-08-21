@@ -31,11 +31,11 @@ public class ProgramRelease
     [JsonProperty("body", NullValueHandling = NullValueHandling.Ignore)]
     public string Body { get; set; }
 
-    public Asset Asset => asset ??= Assets.FirstOrDefault(a => a.Name == Program.RepositoryPackage);
+    public Asset Asset => asset ??= Assets.FirstOrDefault(a => a.Name == Program.RepositoryPackage || a.Name == Program.RepositoryExecutable);
 
-    public Version Version => version ??= new(TagName[1..]);
+    public Version Version => version ??= new Version(TagName?.Substring(1) ?? "0.0.0");
 
-    public string[] Changes => changes ??= Body.Replace("- ", "").Split("\r\n");
+    public string[] Changes => changes ??= (Body ?? "").Replace("- ", "").Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 }
 
 public class Asset
