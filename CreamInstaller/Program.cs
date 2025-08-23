@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -40,13 +41,34 @@ internal static class Program
 
     internal static bool BlockProtectedGames = true;
     internal static readonly string[] ProtectedGames = ["PAYDAY 2"];
-    internal static readonly string[] ProtectedGameDirectories = [@"\EasyAntiCheat", @"\BattlEye"];
+    internal static readonly string[] ProtectedGameDirectories = [@"\EasyAntiCheat", @"\BattlEye", @"AntiCheatExpert"];
     internal static readonly string[] ProtectedGameDirectoryExceptions = [];
 
+    private static bool IsExitInDiectory(string baseDir,string searchDir,int maxDepth)
+    {
+        if(maxDepth < 0) return false;
+        if (baseDir == searchDir) return true;
+        if ((baseDir + searchDir).DirectoryExists())
+        {
+            return true;
+        }
+        else
+        {
+            string[] directories = Directory.GetDirectories(baseDir);
+            foreach (string directory in directories)
+            {
+                if (IsExitInDiectory(directory, searchDir, maxDepth - 1))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     internal static bool IsGameBlocked(string name, string directory = null)
         => BlockProtectedGames && (ProtectedGames.Contains(name) || directory is not null &&
             !ProtectedGameDirectoryExceptions.Contains(name)
-            && ProtectedGameDirectories.Any(path => (directory + path).DirectoryExists()));
+            && ProtectedGameDirectories.Any(path => IsExitInDiectory(directory,path,4)));
 
     [STAThread]
     private static void Main()

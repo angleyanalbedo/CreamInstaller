@@ -42,6 +42,9 @@ public class CmdAppData
 
     [JsonProperty(PropertyName = "extended")]
     public CmdAppExtended Extended { get; set; }
+
+    [JsonProperty(PropertyName ="config")]
+    public Dictionary<string, dynamic> Config { get; set; }
 }
 
 public class CmdAppDetails
