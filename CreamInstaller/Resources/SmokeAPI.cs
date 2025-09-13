@@ -92,6 +92,7 @@ internal static class SmokeAPI
         writer.WriteLine("  \"logging\": false,");
         writer.WriteLine("  \"unlock_family_sharing\": true,");
         writer.WriteLine("  \"default_app_status\": \"unlocked\",");
+        writer.WriteLine($"  \"override_app_id\": {appId},");
         writer.WriteLine("  \"override_app_status\": {},");
         if (overrideDlc.Count > 0)
         {
