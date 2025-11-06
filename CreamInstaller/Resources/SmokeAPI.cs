@@ -311,7 +311,8 @@ internal static class SmokeAPI
             "C8E796DDD74F2C28996EE3F41938565C", // SmokeAPI v2.0.2
             "8B075C6B272A172A014D5C9E60F13DF2", // SmokeAPI v2.0.3
             "A3873569DECAD08962C46E88352E6DB1", // SmokeAPI v2.0.4
-            "4A1A823E5CF4FB861DD6BA94539D29C4" // SmokeAPI v2.0.5
+            "4A1A823E5CF4FB861DD6BA94539D29C4", // SmokeAPI v2.0.5
+            "e833ace855245d5939ee36ff25d8b4a4"  // SmokeAPI v4.0.0
         ],
         [ResourceIdentifier.Steamworks64] =
         [
@@ -326,7 +327,9 @@ internal static class SmokeAPI
             "CF9DF2E2EBA002DB98FE37FB1FB08FA8", // SmokeAPI v2.0.2
             "E4DC2AF2B8B77A0C9BF9BFBBAEA11CF7", // SmokeAPI v2.0.3
             "C0DDB49C9BFD3E05CBC1C61D117E93F9", // SmokeAPI v2.0.4
-            "F7C3064D5E3C892B168F504C21AC4923" // SmokeAPI v2.0.5
+            "F7C3064D5E3C892B168F504C21AC4923", // SmokeAPI v2.0.5
+            "22dd39b16d3c10fdb044fdcb1bae63b8"  // SmokeAPI v4.0.0
+
         ]
     };
 }
