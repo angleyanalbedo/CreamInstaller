@@ -35,6 +35,7 @@ CreamInstalle official:https://github.com/pointfeev/CreamInstaller
 ### 安装：
 1. 单击[此处](https://github.com/angleyanalbedo/CreamInstaller/releases/tag/release)从[GitHub](https://github.com/angleyanalbedo/CreamInstaller)下载最新版本 ）。
 2. 解压缩 没有请搜索Bandzip。 *它是完全独立的。*
+3. 或者从[action](https://github.com/angleyanalbedo/CreamInstaller/actions)下载最新的 `CreamInstaller.zip` 文件并解压缩它。
 
 如果程序无法启动，请尝试下载并安装 [.NET Desktop Runtime 8.0.4](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0 ）
 然后重新启动电脑。 请注意，该程序目前仅支持 Windows 8+ 64 位计算机，因为 .NET 7+ 不再支持 Windows 7。
